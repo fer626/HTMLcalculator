@@ -145,7 +145,26 @@
 				}
 			});
 			$("#result").click(() => {
-
+				let num1 = parseFloat($(".operations").text());
+				let num2 = parseFloat($(".digits").text());
+				switch($($(".operations").parent().children()[1]).text()) {
+					case "+":
+						$(".digits").text(num1 + num2);
+						break;
+					case "-":
+						$(".digits").text(num1 - num2);
+						break;
+					case "/":
+						$(".digits").text(num1 / num2);
+						break;
+					case "*":
+						$(".digits").text(num1 * num2);
+						break;
+					default:
+						alert("operacion invalida");
+				}
+				$(".operations").text(null);
+				$($(".operations").parent().children()[1]).text(null);
 			});
 		});
 	</script>
