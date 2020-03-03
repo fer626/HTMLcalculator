@@ -50,7 +50,7 @@
 							<div>
 								<div class="operations text-right"></div><span></span>
 							</div>
-							<div class="digits text-right"></div>
+							<div class="digits text-right">0</div>
 						</div>
 						<div class="col-12">
 							<div class="row">
@@ -93,7 +93,7 @@
 											<button type="button" class="btn btn-outline btn-primary">0</button>
 										</div>
 										<div class="col">
-											<button type="button" class="btn btn-outline btn-primary">00</button>
+											<button type="button" class="btn btn-outline btn-primary">C</button>
 										</div>
 										<div class="col">
 											<button type="button" id="result" class="btn btn-outline btn-info">=</button>
@@ -138,6 +138,10 @@
 			$("div > button[type='button']:not(.btn-info)").click((e) => {
 				if ($.isNumeric($($(e)[0].target).text())) {
 					$(".digits").text($(".digits").text() + $($(e)[0].target).text());
+				}else if($($(e)[0].target).text() == "C"){
+					$(".operations").text(null);
+					$($(".operations").parent().children()[1]).text(null);
+					$(".digits").text(0);
 				}else{
 					$(".operations").text($(".digits").text());
 					$($(".operations").parent().children()[1]).text($($(e)[0].target).text());
